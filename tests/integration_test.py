@@ -13,6 +13,7 @@ class TestRoute(object):
         {"lat": 59.3258414, "lon": 17.70188},
         {"lat": 53.200386, "lon": 45.021838}
     ]
+
     def setup(self):
         self.route_post = requests.post(ROUTE_ENDPOINT)
         route = self.route_post.json()
@@ -22,7 +23,10 @@ class TestRoute(object):
 
     def _push_route(self, route_id):
         for coordinates in self.wgs84_coordinates:
-            requests.post(ROUTE_ADD_WAY_POINT_ENDPOINT.format(route_id), json=coordinates)
+            requests.post(
+                ROUTE_ADD_WAY_POINT_ENDPOINT.format(route_id),
+                json=coordinates,
+            )
 
     def test_length_calculation(self):
         length = self.length_get.json()
