@@ -19,7 +19,14 @@ setup(
     long_description=long_description,
     packages=find_packages(where=here),
     package_data={"gps_routes": ["swagger.yml"]},
-    install_requires=["connexion", "flask", "gunicorn"],
+    install_requires=[
+        "alembic",
+        "connexion",
+        "flask",
+        "gunicorn",
+        "psycopg2",
+        "sqlalchemy",
+    ],
     setup_requires=["setuptools_scm"],
     extras_require={
         "tests": [
