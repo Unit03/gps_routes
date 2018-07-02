@@ -1,0 +1,68 @@
+swagger: "2.0"
+info:
+  description: GPS Routes service
+  title: GPS Routes
+  version: 1.0.0
+
+consumes: [application/json]
+produces: [application/json]
+
+schemes:
+  - https
+
+paths:
+  /route/:
+    post:
+      operationId: gps_routes.web.create_route
+      responses:
+        200:
+          description: New route created.
+          schema:
+            type: object
+            required:
+            - route_id
+            properties:
+              route_id:
+                $ref: "#/definitions/uuid"
+  /route/{route_id}/way_point/:
+    post:
+      operationId: gps_routes.web.add_way_point
+      parameters:
+      - name: route_id
+        in: path
+        description: URL to be expanded
+        required: true
+        type: string
+        format: uuid
+        pattern: ^[a-f0-9]{32}$
+      responses:
+        204:
+          description: Way point added to the route.
+  /route/{route_id}/length/:
+    get:
+      operationId: gps_routes.web.get_length
+      parameters:
+      - name: route_id
+        in: path
+        description: URL to be expanded
+        required: true
+        type: string
+        format: uuid
+        pattern: ^[a-f0-9]{32}$
+      responses:
+        200:
+          description: Length of the route.
+          schema:
+            type: object
+            required:
+            - km
+            properties:
+              km:
+                type: integer
+                minimum: 0
+
+definitions:
+  uuid:
+    type: string
+    format: uuid
+    pattern: ^[a-f0-9]{32}$

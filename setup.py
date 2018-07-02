@@ -18,6 +18,8 @@ setup(
     description="GPS Routes service",
     long_description=long_description,
     packages=find_packages(where=here),
+    package_data={"gps_routes": ["swagger.yml"]},
+    install_requires=["connexion", "flask", "gunicorn"],
     setup_requires=["setuptools_scm"],
     extras_require={
         "tests": [
