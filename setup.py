@@ -23,9 +23,11 @@ setup(
         "alembic",
         "connexion",
         "flask",
+        "geoalchemy2",
         "gunicorn",
         "psycopg2",
         "sqlalchemy",
+        "sqlalchemy-utils",
     ],
     setup_requires=["setuptools_scm"],
     extras_require={
