@@ -1,0 +1,14 @@
+build/
+dist/
+.cache
+.coverage
+.eggs
+.idea
+*.egg-info/
+*.json
+*.log
+*.orig
+*.plan
+*.pyc
+*.sw[a-z]
+*.tmp
