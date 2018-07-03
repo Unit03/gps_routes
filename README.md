@@ -19,6 +19,34 @@ Point `SQL_DSN` environment variable at the server
 export SQL_DSN=postgresql+psycopg2://postgres@172.17.0.3/gps_routes
 ```
 
+## Run using Docker
+
+First, install Alembic:
+
+```bash
+pip install alembic
+```
+
+Run database migrations:
+
+```bash
+alembic upgrade head
+```
+
+Build the API image:
+
+```bash
+docker build --tag gps_routes .
+```
+
+and run it:
+
+```bash
+docker run --publish 5000 --env SQL_DSN=$SQL_DSN --interactive --tty gps_routes
+```
+
+## On the host
+
 Install the API:
 
 ```bash
