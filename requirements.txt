@@ -38,5 +38,5 @@ SQLAlchemy-Utils==0.33.3
 swagger-spec-validator==2.3.1
 unify==0.4
 untokenize==0.1.1
-urllib3==1.23
+urllib3==1.26.5
 Werkzeug==0.14.1
